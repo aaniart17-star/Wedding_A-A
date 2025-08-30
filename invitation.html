@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <header id="home" class="hero-section">
+    <div class="hero-background"></div>
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="title">
+        <span class="title-text">WEDDING DAY</span>
+        <button class="play-button" id="playPauseBtn">
+          <audio id="audio" src="Pianovus Mariage D'amour.mp3" type="audio/mpeg" autoplay></audio>
+          <i class="fas fa-play play-icon"></i>
+        </button>
+      </h1>
+      <div class="main-image">
+        <img src="IMG_1.jpg" alt="wedding" data-aos="zoom-in" data-aos-delay="300">
+        <div class="date-overlay" data-aos="fade-in-left" data-aos-delay="600">
+          <span>09</span>
+          <span>10</span>
+          <span>25</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Names Section -->
+  <section class="names-section" data-aos="fade-up">
+    <div class="names">
+      <h2>Արտակ & Անի</h2>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="quote-section" data-aos="fade-up">
+    <div class="quote-container">
+      <p class="quote">Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց հանդիսությանը</p>
+    </div>
+  </section>
+
+  <!-- Calendar Section -->
+  <section class="calendar-section" data-aos="fade-up">
+    <div class="calendar-container">
+      <h1 class="calendar-title">Հոկտեմբեր 2025</h1>
+      <div class="calendar-wrapper">
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th>Երկ</th>
+              <th>Երք</th>
+              <th>Չրք</th>
+              <th>Հնգ</th>
+              <th>Ուրբ</th>
+              <th>Շբթ</th>
+              <th>Կիր</th>
+            </tr>
+          </thead>
+          <tbody id="calendar-body">
+            <!-- JS will insert days here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" class="event-section" data-aos="fade-up">
+    <div class="events-container">
+      <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="event-header">
+          <h2>ԺԱՄԱՆԱԿԱՑՈՒՅՑ</h2>
+          <div class="event-time">14:30</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">Պսակադրություն</div>
+          <div class="event-location">Սաղմոսավանք վանական համալիր</div>
+          <div class="event-image">
+            <img src="Saghmosavank Church Armenia.jpg" alt="Saghmosavank">
+            <div class="event-actions">
+              <button class="btn btn-primary">
+                <a href="https://yandex.ru/maps/-/CLAqfJ0P" style="text-decoration: none;">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <!-- Քարտեզ -->
+                  <span style="color:#6b5b4a; font-weight:600;">Քարտեզ</span>
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="event-header">
+          <div class="event-time">17:30</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">Տոնական Խնջույք</div>
+          <div class="event-location">Վիվալդի Ռեստորան</div>
+          <div class="event-image">
+            <img src="https://avatars.mds.yandex.net/get-altay/14306639/2a000001924810cf06d153a8efa0ee414252/L_height" alt="Restaurant">
+            <div class="event-actions">
+              <button class="btn btn-primary">
+                <a href="https://yandex.ru/maps/-/CLAqbV1K" style="text-decoration: none;">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <!-- Քարտեզ -->
+                  <span style="color:#6b5b4a; font-weight:600;">Քարտեզ</span>
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp" class="rsvp-section" data-aos="fade-up">
+    <div class="rsvp-container">
+      <div class="rsvp-header">
+        <h2>Հաստատեք մասնակցությունը</h2>
+        <p>Խնդրում ենք նախապես տեղեկացնել Ձեր մասնակցության մասին մինչև սեպտեմբերի 25-ը</p>
+      </div>
+      
+      <form class="rsvp-form" onsubmit="event.preventDefault(); submitForm();">
+        <div class="form-group">
+          <label class="form-label">Կկարողանա՞ք ներկա գտնվել միջոցառմանը</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="check" value="yes" checked>
+              <span class="radio-custom"></span>
+              Այո, իհարկե
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="check" value="no">
+              <span class="radio-custom"></span>
+              Ցավոք, ոչ
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-field">
+            <input type="text" name="name" required />
+            <label>Նշեք Ձեր անուն/ազգանունը</label>
+            <span class="focus-border"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div id="guests-container"></div>
+          <button type="button" class="btn btn-secondary" onclick="addGuest()">
+            <i class="fas fa-plus"></i>
+            Ավելացնել հյուրի անունը
+          </button>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ու՞մ կողմից եք հրավիրված</label>
+          <div class="checkbox-group">
+            <label class="checkbox-option">
+              <input type="checkbox" name="invited_by" value="Artak">
+              <span class="checkbox-custom"></span>
+              Արտակ
+            </label>
+            <label class="checkbox-option">
+              <input type="checkbox" name="invited_by" value="Ani">
+              <span class="checkbox-custom"></span>
+              Անի
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-submit">
+          <span class="btn-text">Ավելացնել</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Countdown Section -->
+  <section class="countdown-section" data-aos="fade-up">
+    <div class="countdown-container">
+      <h1>Կհանդիպենք շուտով...</h1>
+      <div id="timer" class="countdown-timer">
+        <div class="timer-item">
+          <span id="days">00</span>
+          <p>Օր</p>
+        </div>
+        <div class="timer-separator">:</div>
+        <div class="timer-item">
+          <span id="hours">00</span>
+          <p>Ժամ</p>
+        </div>
+        <div class="timer-separator">:</div>
+        <div class="timer-item">
+          <span id="minutes">00</span>
+          <p>Րոպե</p>
+        </div>
+        <div class="timer-separator">:</div>
+        <div class="timer-item">
+          <span id="seconds">00</span>
+          <p>Վայրկյան</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" data-aos="fade-up">
+    <div class="footer-content">
+      <p>Սիրով սպասում ենք Ձեզ</p>
+      <h3>ԱՐՏԱԿ & ԱՆԻ</h3>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

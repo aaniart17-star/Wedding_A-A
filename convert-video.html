@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Conversion Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .method {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .method h3 {
+            color: #2c5aa0;
+            margin-top: 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Video Conversion Help</h1>
+        
+        <div class="warning">
+            <strong>Note:</strong> Your video.MOV file needs to be converted to video.mp4 to work with your HTML page.
+        </div>
+
+        <div class="method">
+            <h3>🌐 Method 1: Online Converters (Recommended)</h3>
+            <p>Use these free online tools to convert your MOV file to MP4:</p>
+            <a href="https://convertio.co/mov-mp4/" class="button" target="_blank">Convertio.co</a>
+            <a href="https://www.onlinevideoconverter.com/" class="button" target="_blank">Online Video Converter</a>
+            <a href="https://cloudconvert.com/mov-to-mp4" class="button" target="_blank">CloudConvert</a>
+            
+            <p><strong>Steps:</strong></p>
+            <ol>
+                <li>Click one of the links above</li>
+                <li>Upload your <code>video.MOV</code> file</li>
+                <li>Select MP4 as output format</li>
+                <li>Download the converted file</li>
+                <li>Rename it to <code>video.mp4</code></li>
+                <li>Place it in the same folder as your HTML files</li>
+            </ol>
+        </div>
+
+        <div class="method">
+            <h3>💻 Method 2: Install FFmpeg</h3>
+            <p>If you prefer a command-line solution:</p>
+            <ol>
+                <li>Download FFmpeg from <a href="https://ffmpeg.org/download.html" target="_blank">ffmpeg.org</a></li>
+                <li>Extract and add to your system PATH</li>
+                <li>Open command prompt in your project folder</li>
+                <li>Run: <code>ffmpeg -i video.MOV -c:v libx264 -c:a aac video.mp4</code></li>
+            </ol>
+        </div>
+
+        <div class="method">
+            <h3>📱 Method 3: Mobile Apps</h3>
+            <p>Use mobile apps to convert the video:</p>
+            <ul>
+                <li><strong>Android:</strong> Video Converter, Format Factory</li>
+                <li><strong>iOS:</strong> Video Converter, iMovie</li>
+            </ul>
+        </div>
+
+        <div class="success">
+            <strong>✅ After Conversion:</strong>
+            <p>Once you have <code>video.mp4</code> in your folder, your <code>video.html</code> page will work perfectly!</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="video.html" class="button">Back to Video Page</a>
+            <a href="index.html" class="button">Back to Main Page</a>
+        </div>
+    </div>
+</body>
+</html>
