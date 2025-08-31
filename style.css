@@ -51,7 +51,7 @@ body {
 /* Hero Section */
 .hero-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 35vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -745,7 +745,7 @@ body {
 
 .guest-input {
   flex: 1;
-  padding: 1rem;
+  padding: 2rem;
   border: 1px solid #b8a99a;
   border-radius: 12px;
   font-family: 'Inter', sans-serif;
@@ -797,7 +797,7 @@ body {
 
 .countdown-container h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #6b5b4a;
   margin-bottom: 2.5rem;

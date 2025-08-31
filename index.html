@@ -31,7 +31,6 @@
         opacity: 0.9;
     }
 
-    /* Subtle overlay for the entire page */
     body::before {
         content: '';
         position: absolute;
@@ -46,8 +45,9 @@
 
     .video-container {
         position: relative;
-        max-width: 85vw;
-        max-height: 85vh;
+        width: 100%;
+        max-width: 900px;     /* fix լայնություն desktop-ում */
+        height: 70vh;         /* video-ն ավելի երկար desktop-ում */
         border-radius: 20px;
         overflow: hidden;
         box-shadow: 
@@ -58,7 +58,6 @@
         background: rgba(255, 255, 255, 0.05);
     }
 
-    /* Permanent semi-transparent overlay on video */
     .video-container::before {
         content: '';
         position: absolute;
@@ -66,23 +65,22 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(255, 255, 255, 0.05); /* <-- թափանցիկ մոխրագույն */
         pointer-events: none;
         z-index: 3;
-        border-radius: 20px;
+        border-radius: inherit;
     }
+
 
     video {
         width: 100%;
-        height: auto;
-        max-height: 85vh;
-        object-fit: contain;
-        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-        border-radius: 20px;
+        height: 100%;
+        object-fit: contain;   /* video-ն ամբողջությամբ երևում է */
+        border-radius: inherit;
         display: block;
+        background: rgba(255, 255, 255, 0.05);   /* թափանցիկ մոխրագույն */
     }
 
-    /* Custom video controls styling */
     video::-webkit-media-controls {
         background: rgba(0, 0, 0, 0.3);
         border-radius: 0 0 20px 20px;
@@ -158,20 +156,15 @@
         transition: transform 0.1s ease;
     }
 
-    /* Responsive design */
     @media (max-width: 768px) {
         .video-container {
             max-width: 95vw;
-            max-height: 70vh;
+            height: auto;       /* մոբայլում թող auto */
             border-radius: 15px;
         }
 
-                 .video-container::before {
-             border-radius: 15px;
-         }
-
         video {
-            border-radius: 15px;
+            height: auto;
         }
 
         .button {
@@ -181,25 +174,17 @@
             min-width: 180px;
             margin-top: 25px;
         }
-
-        .button:hover {
-            letter-spacing: 3px;
-        }
     }
 
     @media (max-width: 480px) {
         .video-container {
             max-width: 98vw;
-            max-height: 65vh;
+            height: auto;       /* փոքր էկրանների համար auto */
             border-radius: 12px;
         }
 
-                 .video-container::before {
-             border-radius: 12px;
-         }
-
         video {
-            border-radius: 12px;
+            height: auto;
         }
 
         .button {
@@ -211,7 +196,6 @@
         }
     }
 
-    /* Elegant loading animation */
     @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -241,6 +225,7 @@
             Your browser does not support the video tag.
         </video>
     </div>
+   
     <a href="invitation.html" class="button">ԲԱՑԵԼ</a>
 </body>
 </html>
