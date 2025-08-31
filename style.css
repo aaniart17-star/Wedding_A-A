@@ -738,42 +738,62 @@ body {
 /* Guest Input Styles */
 .guest-input-wrapper {
   display: flex;
+  align-items: center;
   gap: 0.8rem;
   margin-bottom: 1.2rem;
   animation: fadeInUp 0.3s ease-out;
+  width: 100%;
 }
 
 .guest-input {
   flex: 1;
-  padding: 2rem;
+  width: 100%;
+  padding: 1.2rem 1.5rem;
   border: 1px solid #b8a99a;
-  border-radius: 12px;
+  border-radius: 8px;
   font-family: 'Inter', sans-serif;
-  background: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
   color: #6b5b4a;
+  min-height: 48px;
+  box-sizing: border-box;
 }
 
 .guest-input:focus {
   outline: none;
   border-color: #9a8b7a;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 2px 8px rgba(154, 139, 122, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(154, 139, 122, 0.15);
+}
+
+.guest-input::placeholder {
+  color: #b8a99a;
+  opacity: 0.7;
 }
 
 .remove-guest-btn {
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   background: rgba(154, 139, 122, 0.15);
   border: 1px solid #b8a99a;
-  border-radius: 12px;
+  border-radius: 8px;
   color: #6b5b4a;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex-shrink: 0;
 }
 
 .remove-guest-btn:hover {
   background: rgba(154, 139, 122, 0.25);
   transform: scale(1.05);
+  color: #8a7560;
 }
 
 /* Countdown Section */
@@ -935,8 +955,70 @@ body {
   }
 }
 
-/* Responsive Design */
+/* Mobile Override Styles - Ensure guest input consistency across all devices */
 @media (max-width: 768px) {
+  .guest-input-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+    margin-bottom: 1.2rem !important;
+    animation: fadeInUp 0.3s ease-out !important;
+    width: 100% !important;
+    flex-direction: row !important;
+  }
+
+  .guest-input {
+    flex: 1 !important;
+    width: 100% !important;
+    padding: 1.2rem 1.5rem !important;
+    border: 1px solid #b8a99a !important;
+    border-radius: 8px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+    color: #6b5b4a !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+  }
+
+  .guest-input:focus {
+    outline: none !important;
+    border-color: #9a8b7a !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 8px rgba(154, 139, 122, 0.15) !important;
+  }
+
+  .guest-input::placeholder {
+    color: #b8a99a !important;
+    opacity: 0.7 !important;
+  }
+
+  .remove-guest-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    background: rgba(154, 139, 122, 0.15) !important;
+    border: 1px solid #b8a99a !important;
+    border-radius: 8px !important;
+    color: #6b5b4a !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+    flex-shrink: 0 !important;
+  }
+
+  .remove-guest-btn:hover {
+    background: rgba(154, 139, 122, 0.25) !important;
+    transform: scale(1.05) !important;
+    color: #8a7560 !important;
+  }
+
+  /* Responsive Design */
   .title {
     gap: 0.8rem;
     font-size: clamp(2.5rem, 6vw, 4rem);
@@ -1075,6 +1157,67 @@ body {
 }
 
 @media (max-width: 480px) {
+  .guest-input-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+    margin-bottom: 1.2rem !important;
+    animation: fadeInUp 0.3s ease-out !important;
+    width: 100% !important;
+    flex-direction: row !important;
+  }
+
+  .guest-input {
+    flex: 1 !important;
+    width: 100% !important;
+    padding: 1.2rem 1.5rem !important;
+    border: 1px solid #b8a99a !important;
+    border-radius: 8px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+    color: #6b5b4a !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+  }
+
+  .guest-input:focus {
+    outline: none !important;
+    border-color: #9a8b7a !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 8px rgba(154, 139, 122, 0.15) !important;
+  }
+
+  .guest-input::placeholder {
+    color: #b8a99a !important;
+    opacity: 0.7 !important;
+  }
+
+  .remove-guest-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    background: rgba(154, 139, 122, 0.15) !important;
+    border: 1px solid #b8a99a !important;
+    border-radius: 8px !important;
+    color: #6b5b4a !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+    flex-shrink: 0 !important;
+  }
+
+  .remove-guest-btn:hover {
+    background: rgba(154, 139, 122, 0.25) !important;
+    transform: scale(1.05) !important;
+    color: #8a7560 !important;
+  }
+
   .hero-content {
     padding: 0 15px;
   }
@@ -1222,110 +1365,3 @@ html {
             background-color: #b8c5c3;
             transform: scale(1.1);
         }
-
-/* Mobile Override Styles - Ensure guest input consistency across all devices */
-@media (max-width: 768px) {
-  .guest-input-wrapper {
-    display: flex !important;
-    gap: 0.8rem !important;
-    margin-bottom: 1.2rem !important;
-    animation: fadeInUp 0.3s ease-out !important;
-    flex-direction: row !important;
-    align-items: center !important;
-  }
-
-  .guest-input {
-    flex: 1 !important;
-    padding: 2rem !important;
-    border: 1px solid #b8a99a !important;
-    border-radius: 12px !important;
-    font-family: 'Inter', sans-serif !important;
-    font-size: inherit !important;
-    background: rgba(255, 255, 255, 0.6) !important;
-    transition: all 0.3s ease !important;
-    color: #6b5b4a !important;
-    min-height: auto !important;
-    line-height: normal !important;
-  }
-
-  .guest-input:focus {
-    outline: none !important;
-    border-color: #9a8b7a !important;
-    background: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 2px 8px rgba(154, 139, 122, 0.1) !important;
-  }
-
-  .remove-guest-btn {
-    padding: 1rem !important;
-    background: rgba(154, 139, 122, 0.15) !important;
-    border: 1px solid #b8a99a !important;
-    border-radius: 12px !important;
-    color: #6b5b4a !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    font-size: inherit !important;
-    min-width: auto !important;
-    min-height: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .remove-guest-btn:hover {
-    background: rgba(154, 139, 122, 0.25) !important;
-    transform: scale(1.05) !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .guest-input-wrapper {
-    display: flex !important;
-    gap: 0.8rem !important;
-    margin-bottom: 1.2rem !important;
-    animation: fadeInUp 0.3s ease-out !important;
-    flex-direction: row !important;
-    align-items: center !important;
-  }
-
-  .guest-input {
-    flex: 1 !important;
-    padding: 2rem !important;
-    border: 1px solid #b8a99a !important;
-    border-radius: 12px !important;
-    font-family: 'Inter', sans-serif !important;
-    font-size: inherit !important;
-    background: rgba(255, 255, 255, 0.6) !important;
-    transition: all 0.3s ease !important;
-    color: #6b5b4a !important;
-    min-height: auto !important;
-    line-height: normal !important;
-  }
-
-  .guest-input:focus {
-    outline: none !important;
-    border-color: #9a8b7a !important;
-    background: rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 2px 8px rgba(154, 139, 122, 0.1) !important;
-  }
-
-  .remove-guest-btn {
-    padding: 1rem !important;
-    background: rgba(154, 139, 122, 0.15) !important;
-    border: 1px solid #b8a99a !important;
-    border-radius: 12px !important;
-    color: #6b5b4a !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    font-size: inherit !important;
-    min-width: auto !important;
-    min-height: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .remove-guest-btn:hover {
-    background: rgba(154, 139, 122, 0.25) !important;
-    transform: scale(1.05) !important;
-  }
-}
