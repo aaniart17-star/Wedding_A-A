@@ -751,7 +751,7 @@ body {
   font-family: 'Inter', sans-serif;
   background: rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
-  color: #6b5b4a;
+  color: #6b5b4a; 
 }
 
 .guest-input:focus {
