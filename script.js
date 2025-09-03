@@ -451,19 +451,19 @@ document.head.appendChild(rippleStyleSheet);
 
 //audio
 const audio = document.getElementById('audio');
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const playIcon = playPauseBtn.querySelector('.play-icon');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const playIcon = playPauseBtn.querySelector('.play-icon');
 
-        playPauseBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playIcon.classList.remove('fa-play');
-                playIcon.classList.add('fa-pause');
-                playPauseBtn.prepend(playIcon);
-            } else {
-                audio.pause();
-                playIcon.classList.remove('fa-pause');
-                playIcon.classList.add('fa-play');
-                playPauseBtn.prepend(playIcon);
-            }
-        });
+playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playIcon.classList.remove('fa-play');
+        playIcon.classList.add('fa-pause');
+        playPauseBtn.prepend(playIcon);
+    } else {
+        audio.pause();
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+        playPauseBtn.prepend(playIcon);
+    }
+});
