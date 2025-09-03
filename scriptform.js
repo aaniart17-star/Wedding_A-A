@@ -1,16 +1,16 @@
 // Firebase SDK import
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAUduVi_b41Ajui8CNfw-aWCEe90noc0EU",
-  authDomain: "wedding-f515.firebaseapp.com",
-  projectId: "wedding-f515",
-  storageBucket: "wedding-f515.firebasestorage.app",
-  messagingSenderId: "465072013903",
-  appId: "1:465072013903:web:2dae675cfaeaed65fe603a",
-  measurementId: "G-5Y3CGWQ4W1"
+  apiKey: "AIzaSyD67OgSjc3O0vjpJ3-M0Od2K6VJv5GqAD0",
+  authDomain: "weddinginvitation-1f0ee.firebaseapp.com",
+  projectId: "weddinginvitation-1f0ee",
+  storageBucket: "weddinginvitation-1f0ee.firebasestorage.app",
+  messagingSenderId: "417266689281",
+  appId: "1:417266689281:web:b382844a85561012c5a700",
+  measurementId: "G-DSPJ8X7G66"
 };
 
 // Initialize Firebase
@@ -21,16 +21,17 @@ const db = getFirestore(app);
 function addGuest() {
   const container = document.getElementById("guests-container");
   const wrapper = document.createElement("div");
+  wrapper.className = "guest-input-wrapper"; // Եթե ուզում ես fadeIn effect
 
   const input = document.createElement("input");
   input.type = "text";
   input.name = "guests[]";
   input.placeholder = "Հյուրի անունը";
-  input.className = "input-style";
+  input.className = "guest-input"; // Համընկնում CSS-ի հետ
 
   const btn = document.createElement("button");
   btn.type = "button";
-  btn.classList.add("remove-btn");
+  btn.className = "remove-guest-btn"; // Համընկնում CSS-ի հետ
 
   const icon = document.createElement("i");
   icon.className = "fas fa-trash";
@@ -57,21 +58,35 @@ async function submitForm() {
       attending: attending, 
       guests: guests, 
       invitedBy: invitedBy,
-      timestamp: new Date()
+      timestamp: serverTimestamp()
   };
 
-  try {
-    await addDoc(collection(db, "RSVP"), data);
-    alert("Տվյալները հաջողությամբ պահպանվել են Firestore-ում!");
-    // Reset form and guests container
-    document.getElementById("rsvp-form").reset();
-    document.getElementById("guests-container").innerHTML = "";
-  } catch (err) {
-    alert("Չհաջողվեց պահպանել տվյալները: " + err);
-    console.error(err);
-  }
+try {
+  await addDoc(collection(db, "guests"), data);
+  alert("Տվյալները հաջողությամբ պահպանվել են");
+} catch (err) {
+  alert("Չհաջողվեց պահպանել տվյալները: " + err);
+  console.error(err);
+  return; // Անմիջապես դուրս գալ ֆունկցիայից, եթե սխալ կա
+}
+
+// DOM-ի փոփոխությունները առանձնացնում ենք try/catch-ից
+const form = document.getElementById("guests-form");
+const container = document.getElementById("guests-container");
+
+if (form) form.reset();
+if (container) container.innerHTML = "";
+
+
 }
 
 // Export functions for use in HTML
 window.addGuest = addGuest;
 window.submitForm = submitForm;
+
+
+
+
+
+
+
