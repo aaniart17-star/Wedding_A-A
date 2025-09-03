@@ -256,12 +256,16 @@ body {
   background: linear-gradient(90deg, transparent, #9a8b7a, transparent);
 }
 
+/* Calendar Container */
 .calendar-container {
-  max-width: 500px;
+  max-width: 100%;      /* Մոբայլի համար բաց թողնել fixed width */
+  width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;      /* Փոքր padding փոքր էկրանների համար */
+  box-sizing: border-box; /* padding ներառվում է width-ում */
 }
 
+/* Calendar Title */
 .calendar-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.2rem;
@@ -273,6 +277,7 @@ body {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+/* Calendar Wrapper */
 .calendar-wrapper {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 25px;
@@ -280,13 +285,21 @@ body {
   backdrop-filter: blur(15px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  max-width: 500px;      /* Համակարգչի համար սահմանված լայնություն */
+  width: 100%;           /* Մոբայլի համար ազատ տարածություն */
+  margin: 0 auto;        /* Կենտրոնացնել համակարգչի վրա */
+  overflow-x: auto;      /* Մոբայլի համար horizontal scroll */
+  box-sizing: border-box;
 }
 
+/* Calendar Table */
 .calendar-table {
   width: 100%;
+  table-layout: fixed; /* Սյուները հավասարապես կբաշխվեն */
   border-collapse: collapse;
 }
 
+/* Table Head */
 .calendar-table th {
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
@@ -297,6 +310,7 @@ body {
   letter-spacing: 1.5px;
 }
 
+/* Table Cells */
 .calendar-table td {
   padding: 1rem;
   text-align: center;
@@ -327,6 +341,24 @@ body {
 
 .calendar-table td.other-month {
   color: #d4c8b8;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 480px) {
+  .calendar-table th,
+  .calendar-table td {
+    font-size: 0.7rem;      /* Փոքր տառեր */
+    padding: 0.5rem 0.2rem; /* Փոքր padding */
+  }
+
+  .calendar-wrapper {
+    padding: 1rem;          /* Փոքրացնել wrapper padding */
+  }
+
+  .calendar-title {
+    font-size: 1.8rem;      /* Փոքրացնել վերնագիրը */
+    letter-spacing: 2px;
+  }
 }
 
 /* Events Section */
@@ -1192,34 +1224,91 @@ html {
 }
 
 
-
-.audio-player{
-  background-color: #cdd5d3;
+/* Music control wrapper fixed position with safe-area support */
+.music-button {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom) + 20px);
+  left: calc(env(safe-area-inset-left) + 20px);
+  z-index: 1000;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f1ed 100%);
+  color: #6b5b4a;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+  backdrop-filter: saturate(120%) blur(2px);
+  touch-action: manipulation;
 }
-        audio {
-            width: 100%;
-            height: 50px;
-            outline: none;
-        }
 
-        .play-button {
-            background-color: #cdd5d3;
-            color: white;
-            border: none;
-            border-radius: 35%;
-            padding: 7px 7px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 40px;
-            min-height: 40px;
-            flex-shrink: 0;
-        }
-        
-        .play-button:hover {
-            background-color: #b8c5c3;
-            transform: scale(1.1);
-        }
+/* Standalone music button (if used as <button id="music-button">) */
+#music-button {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom) + 20px);
+  left: calc(env(safe-area-inset-left) + 20px);
+  z-index: 1000;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f1ed 100%);
+  color: #6b5b4a;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+  backdrop-filter: saturate(120%) blur(2px);
+  touch-action: manipulation;
+}
+
+/* Elegant circular button style for both implementations */
+.play-button,
+#music-button,
+.music-button {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f1ed 100%);
+  color: #6b5b4a;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+  backdrop-filter: saturate(120%) blur(2px);
+}
+
+.play-button i { font-size: 16px; }
+
+.play-button:hover,
+#music-button:hover,
+.music-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #efeae4 100%);
+}
+
+.play-button:active,
+#music-button:active,
+.music-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+@media (pointer: coarse) {
+  .music-button,
+  #music-button,
+  .play-button {
+    width: 56px;
+    height: 56px;
+  }
+}
