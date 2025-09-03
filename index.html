@@ -15,19 +15,18 @@
     body {
         margin: 0;
         padding: 0;
-        height: 100vh;
         min-height: 100vh;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         background-image: url(1.png);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        flex-direction: column;
         font-family: 'Arial', sans-serif;
         position: relative;
-        overflow: hidden;
+        overflow-x: hidden;
         opacity: 0.9;
     }
 
@@ -46,8 +45,8 @@
     .video-container {
         position: relative;
         width: 100%;
-        max-width: 900px;     /* fix լայնություն desktop-ում */
-        height: 70vh;         /* video-ն ավելի երկար desktop-ում */
+        max-width: 1000px;
+        height: 65vh;   /* ինչպես առաջին կոդում */
         border-radius: 20px;
         overflow: hidden;
         box-shadow: 
@@ -58,27 +57,13 @@
         background: rgba(255, 255, 255, 0.05);
     }
 
-    .video-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.05); /* <-- թափանցիկ մոխրագույն */
-        pointer-events: none;
-        z-index: 3;
-        border-radius: inherit;
-    }
-
-
     video {
         width: 100%;
         height: 100%;
-        object-fit: contain;   /* video-ն ամբողջությամբ երևում է */
+        object-fit: contain;
         border-radius: inherit;
         display: block;
-        background: rgba(255, 255, 255, 0.05);   /* թափանցիկ մոխրագույն */
+        background: rgba(255, 255, 255, 0.05);
     }
 
     video::-webkit-media-controls {
@@ -91,108 +76,45 @@
         backdrop-filter: blur(10px);
     }
 
+    /* --- ԲԱՑԵԼ կոճակ --- */
     .button {
-        margin-top: 30px;
-        padding: 16px 32px;
+        margin-top: 20px;
+        padding: 14px 32px;
         font-size: 18px;
         font-weight: 500;
         color: white;
-        letter-spacing: 3px;
         text-transform: uppercase;
-        background: linear-gradient(135deg, 
-            rgba(255, 255, 255, 0.2) 0%,
-            rgba(255, 255, 255, 0.1) 50%,
-            rgba(255, 255, 255, 0.05) 100%);
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        letter-spacing: 2px;
+        border: 2px solid rgba(255,255,255,0.3);
         border-radius: 50px;
         cursor: pointer;
         text-decoration: none;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         backdrop-filter: blur(10px);
-        box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.1),
-            0 0 0 1px rgba(255, 255, 255, 0.1);
-        position: relative;
-        overflow: hidden;
-        z-index: 2;
+        transition: all 0.3s ease;
         min-width: 200px;
         text-align: center;
         display: inline-block;
-    }
-
-    .button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, 
-            transparent, 
-            rgba(255, 255, 255, 0.2), 
-            transparent);
-        transition: left 0.6s ease;
+        z-index: 2;
+        position: relative;
     }
 
     .button:hover {
-        transform: translateY(-2px);
-        background: linear-gradient(135deg, 
-            rgba(255, 255, 255, 0.3) 0%,
-            rgba(255, 255, 255, 0.2) 50%,
-            rgba(255, 255, 255, 0.1) 100%);
-        border-color: rgba(255, 255, 255, 0.5);
-        box-shadow: 
-            0 12px 40px rgba(0, 0, 0, 0.2),
-            0 0 0 1px rgba(255, 255, 255, 0.2);
-        letter-spacing: 4px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+        letter-spacing: 3px;
     }
 
-    .button:hover::before {
-        left: 100%;
-    }
-
-    .button:active {
-        transform: translateY(0);
-        transition: transform 0.1s ease;
-    }
-
+    /* Հատուկ փոքր էկրանների համար */
     @media (max-width: 768px) {
         .video-container {
-            max-width: 95vw;
-            height: auto;       /* մոբայլում թող auto */
-            border-radius: 15px;
-        }
-
-        video {
-            height: auto;
-        }
-
-        .button {
-            padding: 14px 28px;
-            font-size: 16px;
-            letter-spacing: 2px;
-            min-width: 180px;
-            margin-top: 25px;
+            height: 55vh;
         }
     }
 
     @media (max-width: 480px) {
         .video-container {
-            max-width: 98vw;
-            height: auto;       /* փոքր էկրանների համար auto */
-            border-radius: 12px;
-        }
-
-        video {
-            height: auto;
-        }
-
-        .button {
-            padding: 12px 24px;
-            font-size: 14px;
-            letter-spacing: 1.5px;
-            min-width: 160px;
-            margin-top: 20px;
+            height: 50vh;
         }
     }
 
@@ -215,17 +137,16 @@
         animation-delay: 0.3s;
         animation-fill-mode: both;
     }
-
 </style>
 </head>
 <body>
     <div class="video-container">
-    <video controls autoplay muted loop playsinline preload="none" poster="cover.jpg">
-        <source src="video_optimized.webm" type="video/webm">
-        <source src="video_optimized.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
+        <video controls autoplay muted loop playsinline preload="none" poster="cover.jpg">
+            <source src="video_optimized.webm" type="video/webm">
+            <source src="video_optimized.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
    
     <a href="invitation.html" class="button">ԲԱՑԵԼ</a>
 </body>
