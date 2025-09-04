@@ -140,25 +140,40 @@
 </style>
 </head>
 <body>
-    <div class="video-container">
-      <video id="myVideo" autoplay muted loop playsinline preload="auto" poster="cover.jpg">
+    <div class="video-container" style="max-width: 1000px; margin: 0 auto; position: relative;">
+      <video id="myVideo" controls autoplay muted loop playsinline preload="auto" poster="cover.jpg" 
+             style="width: 100%; height: auto; border-radius: 12px; display: block; object-fit: contain;">
         <source src="video_optimized_new.mp4" type="video/mp4">
         <source src="video_optimized.webm" type="video/webm">
         Ձեր բրաուզերը չի աջակցում video tag-ը։
       </video>
+    
+      <!-- Custom mute/unmute button -->
+      <button id="muteBtn" style="
+          position: absolute; 
+          bottom: 20px; 
+          right: 20px; 
+          background: rgba(0,0,0,0.6); 
+          color: white; 
+          border: none; 
+          border-radius: 50%; 
+          font-size: 20px; 
+          padding: 10px; 
+          cursor: pointer;">
+        🔊
+      </button>
     </div>
     
     <script>
       const video = document.getElementById("myVideo");
+      const muteBtn = document.getElementById("muteBtn");
     
-      // Երբ օգտվողը սեղմի առաջին անգամ, ձայնը կբացվի
-      document.addEventListener("click", () => {
-        if (video.muted) {
-          video.muted = false;
-          video.play();
-        }
-      }, { once: true });
-    </script>
+      muteBtn.addEventListener("click", () => {
+        video.muted = !video.muted;
+        muteBtn.textContent = video.muted ? "🔇" : "🔊";
+      });
+</script>
+
 
 
 
