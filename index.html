@@ -140,24 +140,26 @@
 </style>
 </head>
 <body>
-  <div class="video-container" style="position: relative; display: inline-block;">
-    <video id="myVideo" autoplay muted loop playsinline preload="auto" poster="cover.jpg" style="width: 100%; height: auto; border-radius: 12px; cursor: pointer;">
-      <source src="video_optimized_new.mp4" type="video/mp4">
-      <source src="video_optimized.webm" type="video/webm">
-      Ձեր բրաուզերը չի աջակցում video tag-ը։
-    </video>
-  </div>
-  
-  <script>
-    const video = document.getElementById("myVideo");
-  
-    video.addEventListener("click", () => {
-      if (video.muted) {
-        video.muted = false;
-        video.play();
-      }
-    });
-  </script>
+    <div class="video-container">
+      <video id="myVideo" autoplay muted loop playsinline preload="auto" poster="cover.jpg">
+        <source src="video_optimized_new.mp4" type="video/mp4">
+        <source src="video_optimized.webm" type="video/webm">
+        Ձեր բրաուզերը չի աջակցում video tag-ը։
+      </video>
+    </div>
+    
+    <script>
+      const video = document.getElementById("myVideo");
+    
+      // Երբ օգտվողը սեղմի առաջին անգամ, ձայնը կբացվի
+      document.addEventListener("click", () => {
+        if (video.muted) {
+          video.muted = false;
+          video.play();
+        }
+      }, { once: true });
+    </script>
+
 
 
 
