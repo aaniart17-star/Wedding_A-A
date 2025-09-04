@@ -141,29 +141,12 @@
 </head>
 <body>
     <div class="video-container">
-      <video id="myVideo" autoplay muted loop playsinline preload="auto" poster="cover.jpg">
+      <video autoplay muted loop playsinline preload="auto" poster="cover.jpg" controls style="width: 100%; height: auto; border-radius: 12px;">
         <source src="video_optimized_new.mp4" type="video/mp4">
         <source src="video_optimized.webm" type="video/webm">
-        Ձեր բրաուզերը չի աջակցում video tag-ը։
+        Your browser does not support the video tag.
       </video>
     </div>
-    
-    <script>
-      const video = document.getElementById("myVideo");
-    
-      // Վիդեոն և ձայնը միանում են, երբ սեղմում ենք հենց վիդեոյի վրա
-      video.addEventListener("click", () => {
-        if (video.muted) {
-          video.muted = false; // ձայնը միացնել
-          video.play();        // վիդեոն սկսել
-        }
-      });
-    </script>
-
-
-
-
-
 
     <a href="invitation.html" class="button">ԲԱՑԵԼ</a>
 </body>
