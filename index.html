@@ -140,9 +140,9 @@
 </style>
 </head>
 <body>
-    <div class="video-container" style="position: relative; max-width: 1000px; margin: 0 auto;">
+    <div class="video-container" style="max-width: 1000px; margin: 0 auto; position: relative;">
       <video id="myVideo" autoplay muted loop playsinline preload="auto" poster="cover.jpg"
-             style="width: 100%; height: auto; border-radius: 12px;">
+             style="width: 100%; height: auto; border-radius: 12px; display: block;">
         <source src="video_optimized_new.mp4" type="video/mp4">
         <source src="video_optimized.webm" type="video/webm">
         Ձեր բրաուզերը չի աջակցում video tag-ը։
@@ -150,7 +150,9 @@
     
       <!-- 🔊 ձայնի կոճակ -->
       <button id="volumeBtn" 
-              style="position: absolute; bottom: 15px; right: 15px; background: rgba(0,0,0,0.5); border: none; color: white; font-size: 20px; border-radius: 50%; width: 40px; height: 40px; cursor: pointer;">
+              style="position: absolute; bottom: 15px; right: 15px; background: rgba(0,0,0,0.5); 
+                     border: none; color: white; font-size: 20px; border-radius: 50%; width: 40px; height: 40px; 
+                     cursor: pointer; display: flex; align-items: center; justify-content: center;">
         🔇
       </button>
     </div>
@@ -159,12 +161,13 @@
       const video = document.getElementById("myVideo");
       const volumeBtn = document.getElementById("volumeBtn");
     
-      // Ձայնի կոճակի event
-      volumeBtn.addEventListener("click", () => {
-        video.muted = !video.muted;  // միացնել/անջատել muted
-        volumeBtn.textContent = video.muted ? "🔇" : "🔊"; // կոճակի նշան
+      volumeBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // չտարածվի click event video-container-ի վրա
+        video.muted = !video.muted;  
+        volumeBtn.textContent = video.muted ? "🔇" : "🔊";
       });
     </script>
+
 
 
 
