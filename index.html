@@ -147,6 +147,18 @@
         Ձեր բրաուզերը չի աջակցում video tag-ը։
       </video>
     </div>
+    
+    <script>
+      const video = document.getElementById("myVideo");
+    
+      // Երբ օգտվողը սեղմի առաջին անգամ, ձայնը կբացվի
+      document.addEventListener("click", () => {
+        if (video.muted) {
+          video.muted = false;
+          video.play();
+        }
+      }, { once: true });
+    </script>
 
 
     <a href="invitation.html" class="button">ԲԱՑԵԼ</a>
