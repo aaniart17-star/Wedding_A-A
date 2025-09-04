@@ -151,14 +151,15 @@
     <script>
       const video = document.getElementById("myVideo");
     
-      // Երբ օգտվողը սեղմի առաջին անգամ, ձայնը կբացվի
-      document.addEventListener("click", () => {
+      // Վիդեոն և ձայնը միանում են, երբ սեղմում ենք հենց վիդեոյի վրա
+      video.addEventListener("click", () => {
         if (video.muted) {
-          video.muted = false;
-          video.play();
+          video.muted = false; // ձայնը միացնել
+          video.play();        // վիդեոն սկսել
         }
-      }, { once: true });
+      });
     </script>
+
 
 
 
