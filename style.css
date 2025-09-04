@@ -767,6 +767,13 @@ body {
   width: 100%;
 }
 
+.form-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px 0;
+  color: #333;
+}
+
 /* Guest Input Styles */
 .guest-input-wrapper {
   display: flex;
@@ -1311,4 +1318,5 @@ html {
     width: 56px;
     height: 56px;
   }
+
 }
