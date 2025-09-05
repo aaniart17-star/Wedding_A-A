@@ -47,6 +47,7 @@ function addGuest() {
 }
 
 // Submit form to Firestore
+// Submit form to Firestore
 async function submitForm() {
   const name = document.querySelector('input[name="name"]').value;
   const guests = Array.from(document.querySelectorAll('input[name="guests[]"]')).map(input => input.value);
@@ -61,28 +62,28 @@ async function submitForm() {
       timestamp: serverTimestamp()
   };
 
-try {
-  await addDoc(collection(db, "guests"), data);
-  alert("Տվյալները հաջողությամբ պահպանվել են");
-} catch (err) {
-  alert("Չհաջողվեց պահպանել տվյալները: " + err);
-  console.error(err);
-  return; // Անմիջապես դուրս գալ ֆունկցիայից, եթե սխալ կա
+  try {
+    await addDoc(collection(db, "guests"), data);
+    alert("Տվյալները հաջողությամբ պահպանվել են");
+  } catch (err) {
+    alert("Չհաջողվեց պահպանել տվյալները: " + err);
+    console.error(err);
+    return;
+  }
+
+  // ✅ ուղղված id
+  const form = document.getElementById("rsvp-form");
+  const container = document.getElementById("guests-container");
+
+  if (form) form.reset();
+  if (container) container.innerHTML = "";
 }
 
-// DOM-ի փոփոխությունները առանձնացնում ենք try/catch-ից
-const form = document.getElementById("guests-form");
-const container = document.getElementById("guests-container");
-
-if (form) form.reset();
-if (container) container.innerHTML = "";
-
-
-}
 
 // Export functions for use in HTML
 window.addGuest = addGuest;
 window.submitForm = submitForm;
+
 
 
 
